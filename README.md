@@ -48,4 +48,4 @@ function ecd
 
 ### Acknowledgement
 
-This project is supported by Microsoft Corporation.
+This author is hired by Microsoft Corporation.
