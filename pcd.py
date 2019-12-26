@@ -58,7 +58,8 @@ get_path(args.call)
 
 if args.interactive:
     try:
-        for line in sys.stdin:
+        while True:
+            line = input('pcd> ')
             call = line.strip().split()
             get_path(call)
     except KeyboardInterrupt:
