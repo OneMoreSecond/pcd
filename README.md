@@ -42,6 +42,19 @@ function pcd
 
 function ecd
 {
+    $pcd_out = python "$pcd_dir\pcd.py" -c "explorer /n,{}" @Args
+    if ($pcd_out -is "String" -and -not $pcd_out.StartsWith("pcd error: "))
+    {
+        Set-Location $pcd_out
+    }
+    else
+    {
+        Write-Output $pcd_out
+    }
+}
+
+function ecdi
+{
     python "$pcd_dir\pcd.py" -i -c "explorer /n,{}"
 }
 ```
