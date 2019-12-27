@@ -45,7 +45,7 @@ function pcd
 # open target path in explorer
 function ecd
 {
-    $pcd_out = python $pcd_path -c "explorer /n,{}" @Args
+    python $pcd_path -c "explorer /n,{}" @Args
 }
 
 # interactively open target path in explorer
