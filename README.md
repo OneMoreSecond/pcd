@@ -14,9 +14,9 @@ Python >= 3.4
 
 Run `python3 setup.py`.
 
-Then you can try `python3 pcd.py`.
+You can write your customized path function in `function.py`.
 
-You can write your customized path function in `function.py`
+Then you can try `python3 pcd.py`.
 
 ## Common settings
 
@@ -26,10 +26,11 @@ Add to your PowerShell profile
 
 ``` powershell
 $pcd_dir = "D:\pcd"
+$pcd_path = "$pcd_dir\pcd.py"
 
 function pcd
 {
-    $pcd_out = python "$pcd_dir\pcd.py" @Args
+    $pcd_out = python $pcd_path @Args
     if ($pcd_out -is "String" -and -not $pcd_out.StartsWith("pcd error: "))
     {
         Set-Location $pcd_out
@@ -42,7 +43,7 @@ function pcd
 
 function ecd
 {
-    $pcd_out = python "$pcd_dir\pcd.py" -c "explorer /n,{}" @Args
+    $pcd_out = python $pcd_path -c "explorer /n,{}" @Args
     if ($pcd_out -is "String" -and -not $pcd_out.StartsWith("pcd error: "))
     {
         Set-Location $pcd_out
@@ -55,10 +56,6 @@ function ecd
 
 function ecdi
 {
-    python "$pcd_dir\pcd.py" -i -c "explorer /n,{}"
+    python $pcd_path -i -c "explorer /n,{}"
 }
 ```
-
-### Acknowledgement
-
-The author is hired by Microsoft Corporation.
