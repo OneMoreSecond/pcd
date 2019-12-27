@@ -28,6 +28,7 @@ Add to your PowerShell profile
 $pcd_dir = "D:\pcd"
 $pcd_path = "$pcd_dir\pcd.py"
 
+# change working directory in shell
 function pcd
 {
     $pcd_out = python $pcd_path @Args
@@ -41,11 +42,13 @@ function pcd
     }
 }
 
+# open target path in explorer
 function ecd
 {
     $pcd_out = python $pcd_path -c "explorer /n,{}" @Args
 }
 
+# interactively open target path in explorer
 function ecdi
 {
     python $pcd_path -i -c "explorer /n,{}"
